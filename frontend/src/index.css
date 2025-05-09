@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-primary-50 font-sans text-neutral-800 antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-display tracking-wide;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl leading-snug;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl leading-snug;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-3 rounded-md transition-all duration-200 font-medium;
+  }
+  
+  .btn-primary {
+    @apply bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800;
+  }
+  
+  .btn-secondary {
+    @apply bg-primary-200 text-primary-900 hover:bg-primary-300 active:bg-primary-400;
+  }
+  
+  .btn-outline {
+    @apply border border-primary-800 text-primary-900 hover:bg-primary-100 active:bg-primary-200;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 border border-primary-300 rounded-md focus:ring-2 focus:ring-accent-400 focus:border-accent-400 transition duration-200;
+  }
+
+  .nav-link {
+    @apply relative px-3 py-2 font-medium transition-colors duration-200 hover:text-accent-700;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-1/2 w-0 h-0.5 bg-accent-600 transition-all duration-300 ease-in-out -translate-x-1/2;
+  }
+
+  .nav-link:hover::after {
+    @apply w-3/4;
+  }
+
+  .nav-link.active::after {
+    @apply w-3/4;
+  }
+
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .page-title {
+    @apply mb-8 text-center font-display;
+  }
+
+  .artwork-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
+  }
+
+  .artwork-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-300;
+  }
+  
+  .artwork-card img {
+    @apply w-full h-80 object-cover transition-all duration-500 cursor-brush;
+  }
+
+  .artwork-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-neutral-950/70 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-4;
+  }
+}
+
+/* Custom cursors */
+.cursor-brush {
+  cursor: url('/cursors/brush-cursor.svg'), pointer;
+}
